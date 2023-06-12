@@ -21,7 +21,7 @@ localStorage.setItem(
   "tokenKey",
   "TedQEZxvfj0DDPYuSmX389ROEaTvFzh4u/U4C7AVoo30zk63m9v0V4+NqgWLvQIt"
 );
-z;
+
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // event dinlediğin yerde eventi prevent yapmalısın.
   getWeatherDataFromApi();
@@ -86,9 +86,21 @@ createdLi.addEventListener("click", (e) => {
   }
 });
 
-// bubling -> herhangi bir eticaret sitesinde carda tıkladığımda detail  sayfasına gitmek bubling olayına bir örnektir.
+// bubling -> herhangi bir eticaret sitesinde cardın içinde hehangi bir yere tıkladığımda detail sayfasına gitmek bubling olayına bir örnektir.
 createdLi.addEventListener("click", (e) => {
   alert(`${e.target.tagName} element is clicked!`);
   // yönlendirme
   window.location.href = "https://www.busraceval.com/";
+});
+
+// aslında img'ye tıklarım ama oradaki childden parente tüm elemanları tıklanır.
+// bu olayı durdurmak için e.stopPropagation() fni kullanılır ve bublingin önünü keser.
+// örneğin sıralama img > figure > li ise bublingi figurede durdurabilirim.
+
+// x işaretine tıkkladığımda cardı silmek capturing olayıdır
+// eventini çocuğuna aktarırsa (cities içerisindeki childe) buna cağturing denir.
+document.querySelectorAll(".cities").addEventListener("click", (e) => {
+  if (e.target.className === "remove-btn") {
+    alert("clicked remove btn");
+  }
 });
