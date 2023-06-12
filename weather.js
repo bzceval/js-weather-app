@@ -21,7 +21,6 @@ localStorage.setItem(
   "tokenKey",
   "TedQEZxvfj0DDPYuSmX389ROEaTvFzh4u/U4C7AVoo30zk63m9v0V4+NqgWLvQIt"
 );
-
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // event dinlediğin yerde eventi prevent yapmalısın.
   getWeatherDataFromApi();
